@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 .navbar {
-    font-family: "Inter", sans-serif;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
+    
+    font-family: "Inter", sans-serif;
     background-color: #050505;
     padding: 0px 16px;
 }
@@ -50,18 +52,65 @@ button:hover {
     margin-bottom: -100px;
 }
 
+.menu-mobile {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .logo {
-      margin: 0px;
-      height: 100px;
+      height: 125px;
     }
 
-    .navbar div h5 {
+    .logo.is-open {
         display: none;
     }
 
-    .navbar aside {
+    .hide {
         display: none;
+    }
+
+    .hide.is-open {
+        display: block;
+    }
+
+    .aside.is-open{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 12px;
+        padding-top: 10px;
+    }
+
+    .darkbrown-text {
+        display: none;
+    }
+
+    .darkbrown-text.is-open {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .whitebrown-text {
+        display: none;
+    }
+
+    .whitebrown-text.is-open {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        
+    }
+
+    .navbar.is-open {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .menu-mobile {
+        display: block;
+        color:  white;
     }
 
 }
