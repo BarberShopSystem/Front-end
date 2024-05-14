@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Navbar.css'
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Navbar = () => {
 
@@ -12,7 +13,6 @@ const Navbar = () => {
 
   return (
     <header>
-
       <section className={`navbar ${isOpen ? "is-open" : ""}`}>
 
         <div className={`hide ${isOpen ? "is-open" : ""}`}>
@@ -27,9 +27,7 @@ const Navbar = () => {
           <img className="hide" src="../../public/img/Vector.svg" alt="" />
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>(00)00000-0000</h5>
           <button className={`hide ${isOpen ? "is-open" : ""}`} >AGENDAR</button>
-
-          <MenuIcon fontSize='large' className='menu-mobile' onClick={toggleMenu}/>
-          
+          {isOpen? <CloseIcon fontSize='medium' className='menu-mobile close' onClick={toggleMenu}/> : <MenuIcon fontSize='large' className='menu-mobile' onClick={toggleMenu}/> }
         </aside>
 
       </section>

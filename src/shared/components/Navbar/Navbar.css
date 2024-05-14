@@ -9,6 +9,9 @@
     font-family: "Inter", sans-serif;
     background-color: #050505;
     padding: 0px 16px;
+
+    height: 55px;
+    transition: .7s;
 }
 
 .navbar div{
@@ -62,7 +65,7 @@ button:hover {
     }
 
     .logo.is-open {
-        display: none;
+        margin-bottom: 0px;
     }
 
     .hide {
@@ -70,7 +73,7 @@ button:hover {
     }
 
     .hide.is-open {
-        display: block;
+        display: flex;
     }
 
     .aside.is-open{
@@ -90,6 +93,8 @@ button:hover {
     .darkbrown-text.is-open {
         display: block;
         margin-bottom: 10px;
+        padding-top: 16px;
+       
     }
 
     .whitebrown-text {
@@ -99,18 +104,42 @@ button:hover {
     .whitebrown-text.is-open {
         display: block;
         margin: 0px;
-        padding: 0px;
-        
+        padding: 16px;
     }
 
     .navbar.is-open {
-        justify-content: center;
-        flex-direction: column;
+        /*justify-content: center;
+        flex-direction: column;*/
+        display: block;
+        position: absolute;
+        width: 100%;
+        right: 0px;
+        height: 80vh;
+        padding: 0px;
     }
 
     .menu-mobile {
         display: block;
         color:  white;
+        padding: 10px;
     }
 
+    .navbar button {
+        margin: 16px;
+    }
+
+    .close {
+        position: absolute;
+        top: 1vh;
+        left: 85vw;
+        margin: 10px;
+    }
+
+    section div.hide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 10px;
+    }
 }
