@@ -1,11 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Navbar.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import ServicoModal from '../ServiceModal/ServiceModal.tsx';
+
+const profissionais = [
+    { id: 1, nome: 'Profissional 1' },
+    { id: 2, nome: 'Profissional 2' },
+    { id: 3, nome: 'Profissional 3' }
+  ];
 
 const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [showModal, setShowModal] = useState(true);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
+
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen((open) => !open)
@@ -26,11 +41,12 @@ const Navbar = () => {
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>ENDEREÇO</h5>
           <img className="hide" src="../../public/img/Vector.svg" alt="" />
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>(00)00000-0000</h5>
-          <button className={`hide ${isOpen ? "is-open" : ""}`} >AGENDAR</button>
-          {isOpen? <CloseIcon fontSize='medium' className='menu-mobile close' onClick={toggleMenu}/> : <MenuIcon fontSize='large' className='menu-mobile' onClick={toggleMenu}/> }
+          <button className={`hide ${isOpen ? "is-open" : ""}`} onClick={handleShow}>AGENDAR</button>
+          {isOpen? <CloseIcon fontSize='large' className='menu-mobile close' onClick={toggleMenu}/> : <MenuIcon fontSize='large' className='menu-mobile' onClick={toggleMenu}/> }
         </aside>
 
       </section>
+      <ServicoModal show={showModal} handleClose={handleClose} profissionais={profissionais} />
     </header>
   )
 }
