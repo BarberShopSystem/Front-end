@@ -26,7 +26,7 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
   const [telefone, setTelefone] = useState<string>('');
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
       const formData = {
@@ -39,11 +39,28 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
         telefone
       };
       console.log('Form Data:', formData);
-      setFormSubmitted(true);
-      setTimeout(() => {
-        setFormSubmitted(false);
-        handleClose();
-      }, 2000);
+
+      try {
+        const response = await fetch('http://localhost:3000/endpoint', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          setFormSubmitted(true);
+          setTimeout(() => {
+            setFormSubmitted(false);
+            handleClose();
+          }, 2000);
+        } else {
+          console.error('Erro ao enviar dados para o backend');
+        }
+      } catch (error) {
+        console.error('Erro na requisição:', error);
+      }
     }
   };
 
