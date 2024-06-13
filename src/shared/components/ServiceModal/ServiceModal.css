@@ -1,0 +1,27 @@
+.modal-custom .modal-content {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.modal-custom .modal-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-custom .modal-title {
+  color: #343a40;
+}
+
+.modal-custom .form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.modal-custom .btn-primary {
+  background-color: #0460c2;
+  border-color: #007bff;
+}
+
+.modal-custom .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}

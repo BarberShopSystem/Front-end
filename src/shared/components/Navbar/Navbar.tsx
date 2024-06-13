@@ -4,6 +4,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ServicoModal from '../ServiceModal/ServiceModal.tsx';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const profissionais = [
     { id: 1, nome: 'Profissional 1' },
     { id: 2, nome: 'Profissional 2' },
