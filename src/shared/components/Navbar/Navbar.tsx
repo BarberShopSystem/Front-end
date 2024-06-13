@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Navbar.css'
-import MenuIcon from '@mui/icons-material/Menu';
+
 import CloseIcon from '@mui/icons-material/Close';
 import ServicoModal from '../ServiceModal/ServiceModal.tsx';
 
@@ -39,12 +39,13 @@ const Navbar = () => {
         </div>
         
         <aside className={`aside ${isOpen ? "is-open" : ""}`}>
-          <img className="hide" src="../../public/img/Union.svg" alt="" />
+          <img className="hide icone" src="../../public/img/Union.svg" alt="" />
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>ENDEREÇO</h5>
-          <img className="hide" src="../../public/img/Vector.svg" alt="" />
+          <img className="hide icone" src="../../public/img/Vector.svg" alt="" />
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>(00)00000-0000</h5>
           <button className={`hide ${isOpen ? "is-open" : ""}`} onClick={handleShow}>AGENDAR</button>
-          {isOpen? <CloseIcon fontSize='large' className='menu-mobile close' onClick={toggleMenu}/> : <MenuIcon fontSize='large' className='menu-mobile' onClick={toggleMenu}/> }
+          {isOpen? <CloseIcon fontSize='large' className='menu-mobile close' onClick={toggleMenu}/> : <img src="../../../../public/img/icons8-cardápio (1).svg" alt="" className='menu-mobile' onClick={toggleMenu} /> }
+          
         </aside>
 
       </section>
