@@ -18,7 +18,9 @@ import './ServiceModal.css';
 import InputMask from 'react-input-mask';
 
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { DatePicker } from '@mui/x-date-pickers';
+import { DateTimePicker } from '@mui/x-date-pickers';
+import { format } from 'date-fns';
+
 type Profissional = {
   id: number;
   nome: string;
@@ -40,6 +42,7 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
   const [nome, setNome] = useState<string>('');
   const [telefone, setTelefone] = useState<string>('');
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -111,12 +114,6 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
         {formSubmitted ? (
           <Alert severity="success">Serviço agendado com sucesso!</Alert>
         ) : (
-          <>
-          </>
-        )}
-        {formSubmitted ? (
-          <Alert severity="success">Serviço agendado com sucesso!</Alert>
-        ) : (
           <form onSubmit={handleSubmit}>
             {activeStep === 0 && (
               <Box>
@@ -157,9 +154,15 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                     >
                       Selecione uma data
                     </InputLabel>
-                    <DatePicker sx={{
-                      width: '100%'
-                    }}
+                    <DateTimePicker
+                      sx={{ width: '100%' }}
+                      value={data}
+                      onChange={(newValue) => {
+                        const formattedDate = format(newValue, "yyyy-MM-dd'T'HH:mm:ss");
+                        console.log(formattedDate);
+                        setData(newValue);
+                      }}
+
                     />
                   </Grid>
 
@@ -215,7 +218,6 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                   </Grid>
                 </Grid>
               </Box>
-
             )}
             {activeStep === 1 && (
               <Box>
@@ -232,7 +234,6 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                       Selecione o profissional
                     </InputLabel>
                     <FormControl fullWidth margin="normal">
-
                       <Select
                         value={selectedProfissional}
                         variant="outlined"
@@ -246,31 +247,7 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                       </Select>
                     </FormControl>
                   </Grid>
-                  <Grid item xs={12}>
-                    <InputLabel
-                      sx={{
-                        textTransform: 'uppercase',
-                        color: '#000',
-                        fontWeight: 'bold',
 
-                      }}
-                    >
-                      Escolha um horário
-                    </InputLabel>
-                    <TextField
-                      fullWidth
-                      margin="normal"
-
-                      variant="outlined"
-                      type="time"
-                      value={horario}
-                      onChange={e => setHorario(e.target.value)}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      required
-                    />
-                  </Grid>
                   <Grid item xs={12}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
                       <Button
@@ -308,7 +285,6 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                           }
                         }}
                         size='large'
-
                       >
                         Continuar
                       </Button>
@@ -326,7 +302,6 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                         textTransform: 'uppercase',
                         color: '#000',
                         fontWeight: 'bold',
-
                       }}
                     >
                       informe seu nome
@@ -342,7 +317,6 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                       variant="outlined"
                     />
                   </Grid>
-
                   <Grid item xs={12}>
                     <InputLabel
                       sx={{
@@ -370,16 +344,8 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                         />
                       )}
                     </InputMask>
-
                   </Grid>
-
-
-
-
-
-
                   <Grid item xs={12}>
-
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
                       <Button
                         variant="contained"
@@ -419,7 +385,6 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                       >
                         Confirmar Reserva
                       </Button>
-
                     </Box>
                   </Grid>
                 </Grid>
@@ -428,7 +393,7 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
           </form>
         )}
       </Box>
-    </Modal >
+    </Modal>
   );
 };
 
