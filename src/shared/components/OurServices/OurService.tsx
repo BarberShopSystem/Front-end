@@ -1,5 +1,11 @@
 import './OurService.css'
 
+import box1 from '../../../../public/img/Adult haircut img.svg'
+import box2 from '../../../../public/img/Image icon.svg'
+import box3 from '../../../../public/img/Image icon (1).svg'
+import box4 from '../../../../public/img/Image icon (2).svg'
+import box5 from '../../../../public/img/Image icon (3).svg'
+
 const OurService = () => {
 
     return (
@@ -15,7 +21,7 @@ const OurService = () => {
                     <div className='boxes'>
                         <div className='box'>
                             <div className='icone'>
-                                <img src="../../../../public/img/Adult haircut img.svg" alt="" />
+                                <img src={box1} alt="" />
                             </div>
                             <div className='texto'>
                                 <p className='texto-titulo'>SOCIAL</p>
@@ -25,7 +31,7 @@ const OurService = () => {
                         </div>
                         <div className='box'>
                             <div className='icone'>
-                                <img src="../../../../public/img/Image icon.svg" alt="" />
+                                <img src={box2} alt="" />
                             </div>
                             <div className='texto'>
                                 <p className='texto-titulo'>SOCIAL</p>
@@ -35,7 +41,7 @@ const OurService = () => {
                         </div>
                         <div className='box'>
                             <div className='icone'>
-                                <img src="../../../../public/img/Image icon (1).svg" alt="" />
+                                <img src={box3} alt="" />
                             </div>
                             <div className='texto'>
                                 <p className='texto-titulo'>SOCIAL</p>
@@ -45,7 +51,7 @@ const OurService = () => {
                         </div>
                         <div className='box'>
                             <div className='icone'>
-                                <img src="../../../../public/img/Image icon (2).svg" alt="" />
+                                <img src={box4} alt="" />
                             </div>
                             <div className='texto'>
                                 <p className='texto-titulo'>SOCIAL</p>
@@ -55,7 +61,7 @@ const OurService = () => {
                         </div>
                         <div className='box'>
                             <div className='icone'>
-                                <img src="../../../../public/img/Image icon (3).svg" alt="" />
+                                <img src={box5} alt="" />
                             </div>
                             <div className='texto'>
                                 <p className='texto-titulo'>SOCIAL</p>
