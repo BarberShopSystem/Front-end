@@ -358,7 +358,7 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                       value={telefone}
                       onChange={e => setTelefone(e.target.value)}
                     >
-                      {(inputProps) => (
+                      {(inputProps: any) => (
                         <TextField
                           {...inputProps}
                           fullWidth
