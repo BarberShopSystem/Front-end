@@ -1,3 +1,4 @@
+import AboutUs from "../shared/components/AboutUs/AboutUs.tsx";
 import Banner from "../shared/components/Banner/Banner.tsx";
 import InfoSection from "../shared/components/InfoSection/InfoSection.tsx";
 import Navbar from "../shared/components/Navbar/Navbar.tsx";
@@ -13,6 +14,7 @@ function LandingPage() {
         <InfoSection/>
         <OurService/>
         <SecondaryBanner/>
+        <AboutUs/>
     </>
     );
 }
