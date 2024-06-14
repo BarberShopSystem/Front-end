@@ -6,11 +6,16 @@ import ServicoModal from '../ServiceModal/ServiceModal.tsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import image1 from '../../../../public/img/Component 17.png';
+import image2 from '../../../../public/img/Union.svg';
+import image3 from '../../../../public/img/Vector.svg';
+import image4 from '../../../../public/img/icons8-cardápio (1).svg';
+
 const profissionais = [
-    { id: 1, nome: 'Profissional 1' },
-    { id: 2, nome: 'Profissional 2' },
-    { id: 3, nome: 'Profissional 3' }
-  ];
+  { id: 1, nome: 'Profissional 1' },
+  { id: 2, nome: 'Profissional 2' },
+  { id: 3, nome: 'Profissional 3' }
+];
 
 const Navbar = () => {
 
@@ -33,19 +38,19 @@ const Navbar = () => {
       <section className={`navbar ${isOpen ? "is-open" : ""}`}>
 
         <div className={`hide ${isOpen ? "is-open" : ""}`}>
-          <img className={`logo ${isOpen ? "is-open" : ""}`} src="../../public/img/Component 17.png" alt="" />
+          <img className={`logo ${isOpen ? "is-open" : ""}`} src={image1} alt="" />
           <h5 className={`darkbrown-text ${isOpen ? "is-open" : ""}`}>ESTAMOS ABERTOS</h5>
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>7 DIAS NA SEMANA</h5>
         </div>
-        
+
         <aside className={`aside ${isOpen ? "is-open" : ""}`}>
-          <img className="hide icone" src="../../public/img/Union.svg" alt="" />
+          <img className="hide icone" src={image2} alt="" />
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>ENDEREÇO</h5>
-          <img className="hide icone" src="../../public/img/Vector.svg" alt="" />
+          <img className="hide icone" src={image3} alt="" />
           <h5 className={`whitebrown-text ${isOpen ? "is-open" : ""}`}>(00)00000-0000</h5>
           <button className={`hide ${isOpen ? "is-open" : ""}`} onClick={handleShow}>AGENDAR</button>
-          {isOpen? <CloseIcon fontSize='large' className='menu-mobile close' onClick={toggleMenu}/> : <img src="../../../../public/img/icons8-cardápio (1).svg" alt="" className='menu-mobile' onClick={toggleMenu} /> }
-          
+          {isOpen ? <CloseIcon fontSize='large' className='menu-mobile close' onClick={toggleMenu} /> : <img src={image4} alt="" className='menu-mobile' onClick={toggleMenu} />}
+
         </aside>
 
       </section>

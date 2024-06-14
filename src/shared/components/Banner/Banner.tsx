@@ -1,8 +1,9 @@
 import './Banner.css'
+import background from '../../../../public/img/hero img.png'
 
 const Banner = () => {
     return (
-        <div className='bg'></div>
+        <div style={{ backgroundImage: `url(${background})` }} className='bg'></div>
     )
 }
 
