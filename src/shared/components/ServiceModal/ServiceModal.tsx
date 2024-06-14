@@ -14,7 +14,8 @@ import {
   InputAdornment
 } from '@mui/material';
 import 'react-datepicker/dist/react-datepicker.css';
-import './ServiceModal.css'; // Se houver estilos personalizados
+import './ServiceModal.css';
+import InputMask from 'react-input-mask';
 
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { DatePicker } from '@mui/x-date-pickers';
@@ -341,28 +342,42 @@ const ServicoModal: React.FC<ModalProps> = ({ show, handleClose, profissionais }
                       variant="outlined"
                     />
                   </Grid>
+
                   <Grid item xs={12}>
                     <InputLabel
                       sx={{
                         textTransform: 'uppercase',
                         color: '#000',
                         fontWeight: 'bold',
-
                       }}
                     >
                       informe seu telefone
                     </InputLabel>
-                    <TextField
-                      fullWidth
-                      margin="normal"
-                      label="Telefone"
-                      type="tel"
+                    <InputMask
+                      mask="(99) 99999-9999"
                       value={telefone}
                       onChange={e => setTelefone(e.target.value)}
-                      required
-                      variant="outlined"
-                    />
+                    >
+                      {(inputProps) => (
+                        <TextField
+                          {...inputProps}
+                          fullWidth
+                          margin="normal"
+                          label="Telefone"
+                          type="tel"
+                          required
+                          variant="outlined"
+                        />
+                      )}
+                    </InputMask>
+
                   </Grid>
+
+
+
+
+
+
                   <Grid item xs={12}>
 
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
